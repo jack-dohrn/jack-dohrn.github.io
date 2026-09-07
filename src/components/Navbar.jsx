@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
 import projects from '../data/projects'
+import ThemeToggle from './ThemeToggle'
 
 export default function Navbar() {
   const { pathname } = useLocation()
@@ -31,8 +32,11 @@ export default function Navbar() {
         </ul>
       </div>
       <Link to="/#about">About</Link>
+      <Link to="/#contact">Contact</Link>
       <Link to="/resume" aria-current={pathname === '/resume' ? 'page' : undefined}>Resume</Link>
+      <a href="https://www.linkedin.com/in/jack-dohrn-36a359290/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
       <a href="https://github.com/jack-dohrn" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      <ThemeToggle />
     </nav>
   </header>
 }

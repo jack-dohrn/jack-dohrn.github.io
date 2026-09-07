@@ -1,9 +1,11 @@
 import { Link, useParams } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import ProjectImage from '../components/ProjectImage'
+import ProjectFigure from '../components/ProjectFigure'
 import CaseStudySection from '../components/CaseStudySection'
 import projects from '../data/projects'
+import ProjectStatus from '../components/ProjectStatus'
+import ProjectTeam from '../components/ProjectTeam'
 
 export default function ProjectPage() {
   const { slug } = useParams()
@@ -16,10 +18,11 @@ export default function ProjectPage() {
       {project ? <article>
         <header className="project-page-header">
           <p className="eyebrow">{project.type} / {project.year}</p>
+          <div className="project-details"><ProjectTeam project={project} /><ProjectStatus project={project} /></div>
           <h1>{project.title}</h1>
           <p className="project-lead">{project.description}</p>
         </header>
-        {project.heroImage && <figure className="project-hero-image"><ProjectImage src={project.heroImage} alt={project.imageAlt} label={project.shortTitle} tone={project.tone} fit={project.imageFit} crop={project.imageCrop} eager />{project.heroCaption && <figcaption>{project.heroCaption}</figcaption>}</figure>}
+        <ProjectFigure className="project-hero-image" src={project.heroImage} alt={project.imageAlt} label={project.shortTitle} tone={project.tone} fit={project.imageFit} crop={project.imageCrop} caption={project.heroCaption} eager />
         <div className="case-sections">{project.sections.map((section, index) => <CaseStudySection key={`${project.slug}-${index}`} section={section} project={project} />)}</div>
         {(project.github || project.demo) && <CaseStudySection project={project} section={{ type: 'external-links', title: 'Explore the project', links: [project.github && { label: 'GitHub', href: project.github }, project.demo && { label: 'View demo', href: project.demo }].filter(Boolean) }} />}
         <Link to={`/projects/${next.slug}`} className="next-project"><span className="eyebrow">Next project</span><span>{next.title} <span aria-hidden="true">↗</span></span></Link>

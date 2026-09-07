@@ -54,7 +54,7 @@ const resume = {
       "slug": "slim-phenotyping",
       "title": "Label-Free Cytoarchitectural Phenotyping via SLIM",
       "organization": "Beckman Institute · Dr. Catherine Best-Popescu",
-      "date": "Aug 2025 – Present",
+      "date": "Aug 2025 – May 2026",
       "bullets": [
         "Selected for the Grainger College of Engineering Illinois Scholars Undergraduate Research (ISUR) Program; presented findings at the UIUC Undergraduate Research Symposium.",
         "Developed a label-free PICS/QPI framework to classify viable, apoptotic, and dead cells from Spatial Light Interference Microscopy (SLIM) phase maps, analyzing approximately 12,000 CHO cells.",

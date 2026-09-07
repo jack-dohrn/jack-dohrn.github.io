@@ -4,7 +4,7 @@ React + Vite portfolio using HashRouter for GitHub Pages. Run `npm install`, `np
 
 ## Content and routing
 
-Edit `src/data/projects.js` to change project order, metadata, media, or case-study sections. The homepage shows one project at a time, starting with the first entry. Previous/next buttons wrap through the list; left/right keyboard arrows work while focus is inside the carousel. Projects opens a dropdown linking directly to all six case studies in the same order. It closes on selection, outside click, focus leaving, or Escape. Existing slugs are preserved. About and back-to-projects links use HashRouter anchors (`/#about` and `/#projects`). Public project URLs remain `https://jack-dohrn.github.io/#/projects/emg-hand-control`, etc.
+Edit `src/data/projects.js` to change project order, metadata, media, or case-study sections. The homepage displays all projects in a vertical list with dates, summaries, technologies, and thumbnails. Set `status: "active"` for an active indicator in the list and case study. Projects opens a dropdown in the same order. About, Contact, and project links use HashRouter for GitHub Pages.
 
 Personal links are in Navbar and Footer. Optional per-project `github` and `demo` URLs appear near the end of the article when supplied.
 
@@ -24,7 +24,7 @@ The EEG-to-fMRI images are populated from the submitted NE 422 paper: `public/im
 
 The SLIM figures are extracted from the supplied URS poster into `public/images/slim/`: `classification.png`, `experimental-design.png`, `workflow.png`, `phase-maps.png`, and `pca-populations.png`. The classification figure is used on the homepage and at the top of the case study. No SLIM image placeholders remain. The original PowerPoint is not bundled with the site.
 
-Resume opens the HTML page at `/#/resume`. Edit `src/data/resume.js` for education, project contribution summaries, and skills. Project names and dates are shared with `src/data/projects.js`. The page uses confirmed portfolio information; no graduation date, GPA, or additional employment history has been assumed. A legacy `/resume.pdf` request served by Vite links to the new page.
+Resume opens the HTML page at `/#/resume`. Edit `src/data/resume.js` for education, honors, coursework, project contributions, skills, and employment. Project slugs link to case studies. A legacy `/resume.pdf` request served by Vite links to the new page.
 
 ## Flexible case studies
 
@@ -58,4 +58,4 @@ OpenInteraction uses the interface screenshot hosted by Devpost and embeds its V
 
 ## Design
 
-A white background, charcoal typography, #004f90 accents, 1320px content width, and a centered project carousel. Navigation arrows sit beside the project on desktop and below it on mobile. Article text stays narrow, with wider figures and generous spacing. No additional dependencies.
+The light and dark themes use shared color variables. The navigation theme toggle follows system preference initially and saves manual choices in localStorage. Projects use a responsive list, with narrow article text and wider figures. No additional dependencies. See SITE-COMPARISON.md for comparison notes and possible next additions.

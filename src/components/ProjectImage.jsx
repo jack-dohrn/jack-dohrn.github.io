@@ -1,8 +1,9 @@
 import { useState } from 'react'
 
-// Missing images retain their space without implying a research result.
+// Missing or unavailable images are omitted.
 export default function ProjectImage({ src, alt, label = 'Project', tone = 'blue', eager = false, fit, crop, frameRatio }) {
   const [failedSrc, setFailedSrc] = useState(null)
+  if (!src || failedSrc === src) return null
   const imageStyle = crop ? {
     position: 'absolute',
     width: `${crop.sourceWidth / crop.width * 100}%`,
@@ -20,11 +21,6 @@ export default function ProjectImage({ src, alt, label = 'Project', tone = 'blue
   } : undefined
   const img = <img src={src} alt={alt || label} style={imageStyle} loading={eager ? 'eager' : 'lazy'} onError={() => setFailedSrc(src)} />
   return <div className={`project-visual tone-${tone}`} style={frameRatio || cropRatio ? { aspectRatio: frameRatio || cropRatio } : undefined}>
-    {src && failedSrc !== src ? (croppedFrameStyle ? <div style={croppedFrameStyle}>{img}</div> : img) :
-      <div className="image-placeholder" role="img" aria-label={`${label}: project image forthcoming`}>
-        <div className="placeholder-orbit" aria-hidden="true" />
-        <span className="placeholder-label">{label}</span>
-        <span className="placeholder-note">Project imagery forthcoming</span>
-      </div>}
+    {croppedFrameStyle ? <div style={croppedFrameStyle}>{img}</div> : img}
   </div>
 }

@@ -2,6 +2,9 @@
 const projects = [
   {
     "slug": "emg-hand-control",
+    "showListImage": false,
+    "teamSize": 2,
+    "status": "active",
     "title": "EMG-Based Hand Tracking & Computer Control",
     "shortTitle": "EMG",
     "type": "Personal Project",
@@ -13,11 +16,21 @@ const projects = [
       "Arduino",
       "Machine Learning"
     ],
-    "image": "/images/emg/hero.jpg",
-    "heroImage": "/images/emg/hero.jpg",
+    "image": "/images/emg/data-collection.jpg",
+    "heroImage": "/images/emg/data-collection.jpg",
+    "imageCrop": {
+      "x": 0,
+      "y": 16,
+      "width": 1600,
+      "height": 1181,
+      "sourceWidth": 1600,
+      "sourceHeight": 1197
+    },
     "github": null,
     "demo": null,
-    "imageAlt": "EMG-Based Hand Tracking & Computer Control project documentation",
+    "imageAlt": "EMG recording session with forearm electrodes and MediaPipe hand landmarks overlaid on the webcam view",
+    "imageFit": "contain",
+    "heroCaption": "EMG and webcam hand-tracking data collection.",
     "tone": "blue",
     "featured": true,
     "sections": [
@@ -37,7 +50,8 @@ const projects = [
           "The first software milestone was a threaded Python acquisition pipeline with live visualization and RMS-based trigger detection. Debugging motion artifacts, electrode-placement effects, and floating-pin crosstalk helped connect what I saw in the signal to the physical recording setup.",
           "With acquisition in place, we implemented continuous regression from EMG to hand opening and closing, using two methods to collect training labels.",
           "Visual guidance: an on-screen bar moved along a horizontal scale, with an open hand represented at the left and a closed hand at the right. The wearer tried to match their hand opening and closing to the bar’s position. That position supplied the target label, so label accuracy depended on how closely the wearer followed the cue.",
-          "Webcam tracking: MediaPipe measured hand opening and closing while the wearer moved at their own pace. Time-aligning those measurements with the EMG stream provided labels based on observed movement. Both methods were used for continuous regression, completing the Phase 1 path from acquisition to hand-motion estimation."
+          "Webcam tracking: MediaPipe measured hand opening and closing while the wearer moved at their own pace. Time-aligning those measurements with the EMG stream provided labels based on observed movement. Both methods were used for continuous regression, completing the Phase 1 path from acquisition to hand-motion estimation.",
+          "Each webcam-labeling session begins with an open-hand and closed-fist calibration to set the endpoints of the hand-curl range for that session. After calibration, the participant moves naturally while EMG and hand tracking are recorded together. The workflow then moves through feature extraction, regression training, and live inference on incoming EMG."
         ]
       },
       {
@@ -65,24 +79,12 @@ const projects = [
         ]
       },
       {
-        "type": "image",
-        "src": "/images/emg/signal.png",
-        "alt": "Four-channel EMG recording with raw signals and RMS envelopes",
-        "caption": "Phase 1: raw signals and RMS envelopes in the real-time visualization."
-      },
-      {
         "type": "text",
         "title": "Why four channels became the practical limit",
         "content": [
           "In my current Uno R4 implementation, four channels provide a useful balance of per-channel sampling rate and a debuggable serial stream. Moving to six would require changes such as ADC prescaler tuning, a higher baud rate, and binary transmission, with tradeoffs in resolution, timing, and ease of inspection.",
           "The ADC also samples channels sequentially, introducing inter-channel timing skew. Together, channel count and sampling alignment motivated the move to custom hardware for the next stage of signal analysis."
         ]
-      },
-      {
-        "type": "full-width-image",
-        "src": "/images/emg/pipeline.png",
-        "alt": "Phase 1 EMG pipeline with visual-cue and time-aligned webcam labels for continuous regression",
-        "caption": "Phase 1: four-channel EMG acquisition and continuous regression using visual-cue labels or time-aligned MediaPipe hand tracking."
       },
       {
         "type": "text",
@@ -178,6 +180,8 @@ const projects = [
   },
   {
     "slug": "cortical-neuron-mea",
+    "teamSize": 2,
+    "status": "active",
     "title": "Cortical Neuron Signal Analysis via 3Brain MEA",
     "shortTitle": "MEA",
     "type": "Research / In progress",
@@ -192,8 +196,22 @@ const projects = [
     "image": "/images/mea/3brain-mea.jpg",
     "heroImage": "/images/mea/3brain-mea.jpg",
     "imageFit": "contain",
-    "tileImageCrop": { "x": 81.2, "y": 0, "width": 1457.6, "height": 911, "sourceWidth": 1620, "sourceHeight": 911 },
-    "imageCrop": { "x": 0, "y": 101, "width": 1620, "height": 810, "sourceWidth": 1620, "sourceHeight": 911 },
+    "tileImageCrop": {
+      "x": 81.2,
+      "y": 0,
+      "width": 1457.6,
+      "height": 911,
+      "sourceWidth": 1620,
+      "sourceHeight": 911
+    },
+    "imageCrop": {
+      "x": 0,
+      "y": 101,
+      "width": 1620,
+      "height": 810,
+      "sourceWidth": 1620,
+      "sourceHeight": 911
+    },
     "github": null,
     "demo": null,
     "imageAlt": "3Brain single-well HD-MEA plates arranged upright on a light gray background",
@@ -239,6 +257,7 @@ const projects = [
   },
   {
     "slug": "eeg-fmri",
+    "teamSize": 3,
     "title": "EEG-to-fMRI Brain Activation Prediction",
     "shortTitle": "EEG → fMRI",
     "type": "NE 422 / Course Project",
@@ -317,7 +336,8 @@ const projects = [
         "title": "Cross-modal Transformer",
         "content": [
           "We also implemented a cross-modal Transformer using frequency-band EEG features embedded as 256-dimensional tokens, with temporal and electrode-position information. Four encoder layers processed those tokens, while four cross-attention decoder layers let spatially encoded voxel queries attend to the EEG features.",
-          "We trained the 6.4-million-parameter model with a loss combining weighted MSE, Pearson correlation, and a variance-matching penalty to discourage flat predictions. Training used Adam, a batch size of four, and six epochs under laptop-GPU compute constraints."
+          "We trained the 6.4-million-parameter model with a loss combining weighted MSE, Pearson correlation, and a variance-matching penalty to discourage flat predictions. Training used Adam, a batch size of four, and six epochs under laptop-GPU compute constraints.",
+          "The composite loss addresses the mean collapse seen in the MLP baseline. MSE can favor an average map when training data are limited; the correlation term encourages agreement with the spatial pattern, while variance matching discourages an output that is nearly flat. The 256-dimensional embedding describes the size of each token, rather than the number of tokens in a sample."
         ]
       },
       {
@@ -325,6 +345,14 @@ const projects = [
         "src": "/images/eeg-fmri/transformer-comparison.png",
         "alt": "Cross-modal Transformer comparison showing true activation slices above predicted slices",
         "caption": "Figure 3 from the report. The Transformer captured some regional structure, with only partial correspondence to the reference maps."
+      },
+      {
+        "type": "text",
+        "title": "Reading the activation figures",
+        "content": [
+          "The figures illustrate the character of each model’s output, but their display settings differ. The MLP and U-Net examples use subject 16, run 1, with an anatomical underlay and a threshold of |t| > 2. The Transformer panel uses a cross-validation example, no anatomical underlay, and a lower threshold of |t| > 0.5. Apparent activation extent is therefore not directly comparable across the panels.",
+          "Use the quantitative results alongside the images: a map that looks more detailed or more extensive is not necessarily a more accurate prediction. Open a figure at full size to inspect its labels and individual slices."
+        ]
       },
       {
         "type": "table",
@@ -408,15 +436,25 @@ const projects = [
       }
     ],
     "imageFit": "contain",
-    "imageCrop": { "x": 280, "y": 45, "width": 1591, "height": 655, "sourceWidth": 1871, "sourceHeight": 705 },
+    "imageCrop": {
+      "x": 280,
+      "y": 45,
+      "width": 1591,
+      "height": 655,
+      "sourceWidth": 1871,
+      "sourceHeight": 705
+    },
     "heroCaption": "Cross-modal Transformer, Figure 3 of the final report. Ground-truth maps (top) and predictions (bottom) show partial correspondence in regional activation."
   },
   {
     "slug": "slim-phenotyping",
+    "teamSize": 3,
+    "showListImage": false,
+    "status": "completed",
     "title": "Label-Free Cytoarchitectural Phenotyping via SLIM",
     "shortTitle": "SLIM",
     "type": "Research / URS Presentation",
-    "year": "2025–Present",
+    "year": "Aug 2025–May 2026",
     "description": "Label-free cell viability research at the Beckman Institute, combining SLIM quantitative phase imaging, deep learning, and interpretable structural features. Presented at the UIUC Undergraduate Research Symposium.",
     "tags": [
       "Deep Learning",
@@ -425,7 +463,14 @@ const projects = [
       "Computer Vision"
     ],
     "image": "/images/slim/classification.png",
-    "tileImageCrop": { "x": 1172, "y": 363, "width": 657, "height": 510, "sourceWidth": 1920, "sourceHeight": 1034 },
+    "tileImageCrop": {
+      "x": 1172,
+      "y": 363,
+      "width": 657,
+      "height": 510,
+      "sourceWidth": 1920,
+      "sourceHeight": 1034
+    },
     "tileImageAlt": "SLIM cell examples from rows three through five, showing phase images with true and predicted viability labels",
     "heroImage": "/images/slim/classification.png",
     "github": null,
@@ -536,14 +581,21 @@ const projects = [
   },
   {
     "slug": "stroke-classification",
+    "teamSize": 8,
+    "teamLabel": "8-author project",
     "title": "EEG-Based Stroke & Motor Task Classification",
     "shortTitle": "Stroke EEG",
     "type": "NE 412 · Class Project",
     "year": "Spring 2026",
     "description": "A team investigation of whether sensorimotor EEG features can distinguish stroke survivors from healthy controls and classify motor task demand, comparing logistic regression and random forest across five feature sets.",
-    "tags": ["EEG", "MNE-Python", "Machine Learning", "Feature Engineering"],
-    "image": "/images/stroke/workflow.svg",
-    "heroImage": "/images/stroke/workflow.svg",
+    "tags": [
+      "EEG",
+      "MNE-Python",
+      "Machine Learning",
+      "Feature Engineering"
+    ],
+    "image": null,
+    "heroImage": null,
     "imageFit": "contain",
     "imageAlt": "Workflow from sensorimotor EEG through spectral and connectivity features to subject-grouped classification",
     "heroCaption": "An overview of the analysis workflow, illustrated from the class paper.",
@@ -573,7 +625,7 @@ const projects = [
         "title": "Preparing the signals and extracting features",
         "content": [
           "The preprocessing workflow included band-pass filtering, independent component analysis for artifact removal, and epoch-based artifact rejection. Signals were segmented into one-second epochs. Analysis focused on sensorimotor electrodes: FC1–FC6, C1–C6, CP1–CP6, FCz, Cz, and CPz.",
-          "We examined four feature types. Power spectral density (PSD), computed with Welch’s method and averaged across epochs per participant and condition, described signal power across frequencies. Coherence captured frequency-dependent relationships between channels; imaginary coherence emphasized their time-lagged component. Phase lag described timing differences between signals.",
+          "We examined four feature types. Power spectral density (PSD), computed with Welch’s method and averaged across epochs per participant and condition, described signal power in low beta (13–20 Hz) and high beta (20–30 Hz). Coherence captured frequency-dependent relationships between channels; imaginary coherence emphasized their time-lagged component. Phase lag described timing differences between signals.",
           "To test which information helped classification, we compared five combinations: PSD alone; PSD with coherence; PSD with coherence and imaginary coherence; PSD with phase lag; and all four feature types together."
         ]
       },
@@ -582,16 +634,109 @@ const projects = [
         "title": "Comparing models across participants",
         "content": [
           "We evaluated logistic regression and random forest for both classification tasks with each feature combination. This compared a linear classifier with an ensemble of decision trees while keeping the task and feature comparisons consistent.",
-          "Evaluation kept samples from the same participant together to avoid leakage between training and testing. The paper describes an 80/20 subject-level split and reports primary accuracies from five-fold stratified grouped cross-validation, with ROC AUC calculated from cross-validated probabilities."
+          "Evaluation kept samples from the same participant together to avoid leakage between training and testing. The paper describes an 80/20 subject-level split and reports primary accuracies from five-fold stratified grouped cross-validation, with ROC AUC calculated from cross-validated probabilities.",
+          "Feature standardization was fitted within each cross-validation fold, keeping information from held-out participants out of the training transformation."
         ]
       },
       {
         "type": "table",
-        "title": "Best reported results",
-        "columns": ["Task", "Model", "Features", "Accuracy", "ROC AUC"],
+        "title": "Stroke vs. control / Feature comparison",
+        "columns": [
+          "Feature set",
+          "Logistic regression",
+          "Random forest"
+        ],
         "rows": [
-          ["Stroke vs. control", "Random forest", "PSD + phase lag", "≈70%", "0.59"],
-          ["20% vs. 40% MVC", "Logistic regression", "All features", "≈57%", "0.56"]
+          [
+            "All features",
+            "0.600",
+            "0.615"
+          ],
+          [
+            "PSD only",
+            "0.575",
+            "0.665"
+          ],
+          [
+            "PSD + coherence",
+            "0.550",
+            "0.615"
+          ],
+          [
+            "PSD + coherence + imaginary coherence",
+            "0.500",
+            "0.575"
+          ],
+          [
+            "PSD + phase lag",
+            "0.620",
+            "0.695"
+          ]
+        ],
+        "caption": "Cross-validated accuracy across the five feature sets. Detailed values are also documented in the coauthor’s project write-up."
+      },
+      {
+        "type": "table",
+        "title": "20% vs. 40% MVC / Feature comparison",
+        "columns": [
+          "Feature set",
+          "Logistic regression",
+          "Random forest"
+        ],
+        "rows": [
+          [
+            "All features",
+            "0.575",
+            "0.555"
+          ],
+          [
+            "PSD only",
+            "0.460",
+            "0.530"
+          ],
+          [
+            "PSD + coherence",
+            "0.435",
+            "0.405"
+          ],
+          [
+            "PSD + coherence + imaginary coherence",
+            "0.455",
+            "0.550"
+          ],
+          [
+            "PSD + phase lag",
+            "0.545",
+            "0.450"
+          ]
+        ],
+        "caption": "Cross-validated accuracy across the five feature sets. Detailed values are also documented in the coauthor’s project write-up."
+      },
+      {
+        "type": "table",
+        "title": "Best reported results",
+        "columns": [
+          "Task",
+          "Model",
+          "Features",
+          "Accuracy",
+          "ROC AUC"
+        ],
+        "rows": [
+          [
+            "Stroke vs. control",
+            "Random forest",
+            "PSD + phase lag",
+            "≈70%",
+            "0.59"
+          ],
+          [
+            "20% vs. 40% MVC",
+            "Logistic regression",
+            "All features",
+            "≈57%",
+            "0.56"
+          ]
         ],
         "caption": "Rounded results reported in the NE 412 class paper. ROC AUC of 0.50 corresponds to chance discrimination."
       },
@@ -610,11 +755,23 @@ const projects = [
           "The small dataset and substantial variation between participants limited generalization, particularly for larger feature sets. These results provide an exploratory comparison of EEG representations, rather than a validated measure of impairment severity or a clinical monitoring tool.",
           "Future directions include larger datasets, participant-specific models, and comparisons with EEG-focused deep learning architectures such as EEGNet. Recordings with suitable baselines and event timing would also make it possible to study movement-related changes through ERD/ERS analysis."
         ]
+      },
+      {
+        "type": "external-links",
+        "title": "Additional project documentation",
+        "links": [
+          {
+            "label": "Coauthor’s analysis and complete result tables",
+            "href": "https://bernied04.github.io/motor-impairment-decoding.html"
+          }
+        ]
       }
     ]
   },
   {
     "slug": "openinteraction",
+    "showListImage": false,
+    "teamSize": 2,
     "title": "OpenInteraction",
     "shortTitle": "OpenInteraction",
     "type": "NeuroHack Winner",
@@ -674,7 +831,11 @@ const projects = [
       {
         "type": "text",
         "title": "Keeping the interface responsive",
-        "content": "The integration work involved smoothing noisy predictions without excessive delay, preventing overlay flicker, and handling calibration drift. Coordinating two GUI frameworks and live configuration updates also required attention to blocking and save-related race conditions."
+        "content": [
+          "Smoothing reduced gaze jitter but introduced a tradeoff with cursor latency. Calibration drift also affected how head movement mapped to screen coordinates, making recentering an important part of the interface.",
+          "Blink detection needed to avoid false clicks under changing lighting. Overlay flicker and windows moving off-screen created separate usability problems even when the tracking estimates were usable.",
+          "Tkinter settings and PyQt5 overlays had to run without blocking each other. Live JSON updates required coordination between settings callbacks and the tracking loop to avoid overly frequent saves and configuration races. These integration details connected the tracking prototype to an interface that could be operated in real time."
+        ]
       },
       {
         "type": "text",
@@ -699,6 +860,8 @@ const projects = [
   },
   {
     "slug": "neural-prosthetic",
+    "showListImage": false,
+    "teamSize": 6,
     "title": "EEG/EMG Controlled Prosthetic",
     "shortTitle": "Prosthetic",
     "type": "Neurotechnology",

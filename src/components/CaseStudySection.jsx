@@ -1,9 +1,5 @@
 import { useState } from 'react'
-import ProjectImage from './ProjectImage'
-
-function Figure({ src, alt, caption, label, tone }) {
-  return <figure><ProjectImage src={src} alt={alt} label={label} tone={tone} />{caption && <figcaption>{caption}</figcaption>}</figure>
-}
+import Figure from './ProjectFigure'
 
 function Video({ section }) {
   const [failed, setFailed] = useState(false)
