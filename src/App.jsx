@@ -3,6 +3,7 @@ import { HashRouter, Routes, Route, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
 import ProjectPage from './pages/ProjectPage'
 import Resume from './pages/Resume'
+import OtherInterests from './pages/OtherInterests'
 import './App.css'
 
 function RouteScroll() {
@@ -41,6 +42,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/resume" element={<Resume />} />
+      <Route path="/other-interests" element={<OtherInterests />} />
       <Route path="/projects/:slug" element={<ProjectPage />} />
     </Routes>
   </HashRouter>

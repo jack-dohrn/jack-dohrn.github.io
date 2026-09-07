@@ -186,11 +186,12 @@ const projects = [
     "shortTitle": "MEA",
     "type": "Research / In progress",
     "year": "2026–Present",
-    "description": "Ongoing work with cortical neuron cultures and high-density 3Brain microelectrode arrays, connecting extracellular recordings with a neural signal analysis workflow.",
+    "description": "Wet-lab research combining mammalian cell culture, cortical neuron culture, and extracellular recording with high-density 3Brain microelectrode arrays. The project connects hands-on neural cell culture with electrophysiology and signal analysis.",
     "tags": [
       "Electrophysiology",
+      "Wet Lab",
+      "Mammalian Cell Culture",
       "MEA",
-      "Neuroscience",
       "Signal Processing"
     ],
     "image": "/images/mea/3brain-mea.jpg",
@@ -220,10 +221,12 @@ const projects = [
     "sections": [
       {
         "type": "text",
-        "title": "Cortical neuron recordings — in progress",
+        "title": "From neural cell culture to recordings — in progress",
         "content": [
-          "This ongoing project connects cortical neuron culture, extracellular recording with a high-density 3Brain microelectrode array, and computational signal analysis.",
-          "The current focus is developing the experimental recording and analysis workflow. Project-specific findings will be added as the work progresses."
+          "This ongoing project brings together wet-lab experimentation and computational analysis. I work with mammalian cortical neuron cultures, developing hands-on neural cell culture skills alongside extracellular recording with a high-density 3Brain microelectrode array.",
+          "The work spans the biological preparation, electrophysiological recording, and interpretation of neural signals. The current focus is developing this experimental workflow; project-specific findings will be added as the work progresses.",
+          "Mammalian cell culture and sterile technique are central to the work. Working with cortical neurons connects cell handling and culture maintenance to the needs of an electrophysiology experiment, building practical experience with living neural preparations.",
+          "The culture work also provides context for the recordings: interpreting electrical activity requires attention to the biological preparation and experimental conditions as well as the downstream analysis."
         ]
       },
       {
@@ -581,7 +584,7 @@ const projects = [
   },
   {
     "slug": "openinteraction",
-    "showListImage": false,
+    "showListImage": true,
     "teamSize": 2,
     "title": "OpenInteraction",
     "shortTitle": "OpenInteraction",

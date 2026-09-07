@@ -140,7 +140,11 @@ const resume = {
     },
     {
       "title": "Engineering & Data",
-      "detail": "EEG/EMG signal acquisition and processing, neuroimaging analysis, machine learning, deep learning, electrophysiology, microscopy imaging, mammalian cell culture, tissue engineering, biomaterials, histology, sterile technique, neural interface design (in progress)"
+      "detail": "EEG/EMG signal acquisition and processing, neuroimaging analysis, machine learning, deep learning, electrophysiology, neural interface design (in progress)"
+    },
+    {
+      "title": "Wet Lab & Imaging",
+      "detail": "Mammalian cell culture, neural cell culture, sterile technique, tissue engineering, biomaterials, histology, microscopy imaging"
     }
   ],
   "experience": [

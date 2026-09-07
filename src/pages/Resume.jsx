@@ -28,6 +28,10 @@ export default function Resume() {
           <p><strong>Relevant coursework:</strong> {resume.education.coursework}</p>
         </div>
       </section>
+      <section className="resume-section" aria-labelledby="resume-skills">
+        <h2 id="resume-skills">Technical skills</h2>
+        <div>{resume.skills.map(skill => <div className="resume-entry" key={skill.title}><h3>{skill.title}</h3><p>{skill.detail}</p></div>)}</div>
+      </section>
       <section className="resume-section" aria-labelledby="resume-projects">
         <h2 id="resume-projects">Research & projects</h2>
         <div>{resume.projects.map(entry => {
@@ -39,10 +43,6 @@ export default function Resume() {
             <p className="resume-tags">{entry.tags.join(' · ')}</p>
           </article>
         })}</div>
-      </section>
-      <section className="resume-section" aria-labelledby="resume-skills">
-        <h2 id="resume-skills">Technical skills</h2>
-        <div>{resume.skills.map(skill => <div className="resume-entry" key={skill.title}><h3>{skill.title}</h3><p>{skill.detail}</p></div>)}</div>
       </section>
       <section className="resume-section" aria-labelledby="resume-experience">
         <h2 id="resume-experience">Work experience</h2>
