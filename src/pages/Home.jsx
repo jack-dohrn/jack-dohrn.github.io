@@ -18,7 +18,6 @@ export default function Home() {
         <div className="about-text">
           <p>I’m pursuing a B.S. in Neural Engineering with a minor in Computer Science at the University of Illinois Urbana-Champaign.</p>
           <p>I enjoy working across the full pipeline: biological signal acquisition and experiments, signal processing, machine learning, and real-time interfaces. My interests connect computational neuroscience with the practical development of neural interfaces and assistive technology.</p>
-          <a className="text-link" href="mailto:jcdohrn2@illinois.edu">Get in touch ↗</a>
         </div>
       </section>
       <section className="contact-section" id="contact" aria-labelledby="contact-title">
