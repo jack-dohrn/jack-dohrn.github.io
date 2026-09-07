@@ -580,6 +580,96 @@ const projects = [
     "heroCaption": "Classification results from the URS poster: E-U-Net learning curves, test results, and representative cell predictions."
   },
   {
+    "slug": "openinteraction",
+    "showListImage": false,
+    "teamSize": 2,
+    "title": "OpenInteraction",
+    "shortTitle": "OpenInteraction",
+    "type": "NeuroHack Winner",
+    "year": "2025",
+    "description": "An open-source webcam interface exploring hands-free computer access for people with motor impairments, using configurable eye and head tracking. Winner at NeuroHack 2025.",
+    "tags": [
+      "OpenCV",
+      "Python",
+      "Computer Vision",
+      "Assistive Technology"
+    ],
+    "image": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/003/996/404/datas/original.png",
+    "heroImage": null,
+    "github": "https://github.com/jellyfishtacoz/OpenInteraction",
+    "demo": null,
+    "imageAlt": "OpenInteraction configuration interface from the Devpost submission",
+    "tone": "sand",
+    "featured": false,
+    "sections": [
+      {
+        "type": "text",
+        "title": "Computer access beyond the mouse and keyboard",
+        "content": [
+          "We built OpenInteraction with people who have difficulty using a mouse or keyboard in mind. The goal is to offer alternative ways to interact with a computer through eye movement, head movement, and blinking, using an ordinary webcam.",
+          "For someone with limited hand or arm control, these inputs could support more independent desktop interaction. The prototype explores that potential through configurable controls that can be adapted to the movements a person can comfortably use."
+        ]
+      },
+      {
+        "type": "video-embed",
+        "title": "OpenInteraction demo",
+        "src": "https://player.vimeo.com/video/1137435765?byline=0&portrait=0&title=0&dnt=1",
+        "watchUrl": "https://vimeo.com/1137435765",
+        "caption": "The project demonstration submitted to NeuroHack Fall 2025."
+      },
+      {
+        "type": "text",
+        "title": "From tracking to desktop actions",
+        "content": [
+          "OpenCV captures camera frames, EyeTrax estimates gaze, and MediaPipe facial landmarks provide head-pose features. Modular handlers map these signals to cursor movement or keyboard input; blink detection supports optional double-blink clicking.",
+          "I implemented backend control methods for eye and head tracking and developed overlays to make those controls easier to use."
+        ]
+      },
+      {
+        "type": "image",
+        "src": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/003/996/404/datas/original.png",
+        "alt": "OpenInteraction settings interface",
+        "caption": "The configuration interface shown in the Devpost submission."
+      },
+      {
+        "type": "text",
+        "title": "Adapting controls to the person",
+        "content": [
+          "The accessibility goal makes adjustability central to the design. Eye and head control modes, configurable thresholds, and action bindings offer ways to match the interface to different movement preferences and abilities. Live overlays show how tracked movement translates into input.",
+          "PyQt5 renders that feedback, while a Tkinter interface edits settings and saves changes to JSON. Calibration and recentering help align tracking with the user; hotkeys provide quick pause and exit controls."
+        ]
+      },
+      {
+        "type": "text",
+        "title": "Keeping the interface responsive",
+        "content": [
+          "Smoothing reduced gaze jitter but introduced a tradeoff with cursor latency. Calibration drift also affected how head movement mapped to screen coordinates, making recentering an important part of the interface.",
+          "Blink detection needed to avoid false clicks under changing lighting. Overlay flicker and windows moving off-screen created separate usability problems even when the tracking estimates were usable.",
+          "Tkinter settings and PyQt5 overlays had to run without blocking each other. Live JSON updates required coordination between settings callbacks and the tracking loop to avoid overly frequent saves and configuration races. These integration details connected the tracking prototype to an interface that could be operated in real time."
+        ]
+      },
+      {
+        "type": "text",
+        "title": "Prototype limits and next steps",
+        "content": [
+          "The repository notes that gaze tracking works best near the camera in good lighting. Camera selection and keybinding support were also limited in the documented prototype.",
+          "The submission proposes broader customization, multi-monitor support, an on-screen keyboard, and additional operating-system support. These remain roadmap items here rather than claims about the demonstrated version."
+        ]
+      },
+      {
+        "type": "external-links",
+        "title": "Project submission",
+        "links": [
+          {
+            "label": "OpenInteraction on Devpost",
+            "href": "https://devpost.com/software/openinteraction"
+          }
+        ]
+      }
+    ],
+    "imageFit": "contain"
+  },
+  {
     "slug": "stroke-classification",
     "teamSize": 8,
     "teamLabel": "8-author project",
@@ -767,96 +857,6 @@ const projects = [
         ]
       }
     ]
-  },
-  {
-    "slug": "openinteraction",
-    "showListImage": false,
-    "teamSize": 2,
-    "title": "OpenInteraction",
-    "shortTitle": "OpenInteraction",
-    "type": "NeuroHack Winner",
-    "year": "2025",
-    "description": "An open-source webcam interface exploring hands-free computer access for people with motor impairments, using configurable eye and head tracking. Winner at NeuroHack 2025.",
-    "tags": [
-      "OpenCV",
-      "Python",
-      "Computer Vision",
-      "Assistive Technology"
-    ],
-    "image": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/003/996/404/datas/original.png",
-    "heroImage": null,
-    "github": "https://github.com/jellyfishtacoz/OpenInteraction",
-    "demo": null,
-    "imageAlt": "OpenInteraction configuration interface from the Devpost submission",
-    "tone": "sand",
-    "featured": false,
-    "sections": [
-      {
-        "type": "text",
-        "title": "Computer access beyond the mouse and keyboard",
-        "content": [
-          "We built OpenInteraction with people who have difficulty using a mouse or keyboard in mind. The goal is to offer alternative ways to interact with a computer through eye movement, head movement, and blinking, using an ordinary webcam.",
-          "For someone with limited hand or arm control, these inputs could support more independent desktop interaction. The prototype explores that potential through configurable controls that can be adapted to the movements a person can comfortably use."
-        ]
-      },
-      {
-        "type": "video-embed",
-        "title": "OpenInteraction demo",
-        "src": "https://player.vimeo.com/video/1137435765?byline=0&portrait=0&title=0&dnt=1",
-        "watchUrl": "https://vimeo.com/1137435765",
-        "caption": "The project demonstration submitted to NeuroHack Fall 2025."
-      },
-      {
-        "type": "text",
-        "title": "From tracking to desktop actions",
-        "content": [
-          "OpenCV captures camera frames, EyeTrax estimates gaze, and MediaPipe facial landmarks provide head-pose features. Modular handlers map these signals to cursor movement or keyboard input; blink detection supports optional double-blink clicking.",
-          "I implemented backend control methods for eye and head tracking and developed overlays to make those controls easier to use."
-        ]
-      },
-      {
-        "type": "image",
-        "src": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/003/996/404/datas/original.png",
-        "alt": "OpenInteraction settings interface",
-        "caption": "The configuration interface shown in the Devpost submission."
-      },
-      {
-        "type": "text",
-        "title": "Adapting controls to the person",
-        "content": [
-          "The accessibility goal makes adjustability central to the design. Eye and head control modes, configurable thresholds, and action bindings offer ways to match the interface to different movement preferences and abilities. Live overlays show how tracked movement translates into input.",
-          "PyQt5 renders that feedback, while a Tkinter interface edits settings and saves changes to JSON. Calibration and recentering help align tracking with the user; hotkeys provide quick pause and exit controls."
-        ]
-      },
-      {
-        "type": "text",
-        "title": "Keeping the interface responsive",
-        "content": [
-          "Smoothing reduced gaze jitter but introduced a tradeoff with cursor latency. Calibration drift also affected how head movement mapped to screen coordinates, making recentering an important part of the interface.",
-          "Blink detection needed to avoid false clicks under changing lighting. Overlay flicker and windows moving off-screen created separate usability problems even when the tracking estimates were usable.",
-          "Tkinter settings and PyQt5 overlays had to run without blocking each other. Live JSON updates required coordination between settings callbacks and the tracking loop to avoid overly frequent saves and configuration races. These integration details connected the tracking prototype to an interface that could be operated in real time."
-        ]
-      },
-      {
-        "type": "text",
-        "title": "Prototype limits and next steps",
-        "content": [
-          "The repository notes that gaze tracking works best near the camera in good lighting. Camera selection and keybinding support were also limited in the documented prototype.",
-          "The submission proposes broader customization, multi-monitor support, an on-screen keyboard, and additional operating-system support. These remain roadmap items here rather than claims about the demonstrated version."
-        ]
-      },
-      {
-        "type": "external-links",
-        "title": "Project submission",
-        "links": [
-          {
-            "label": "OpenInteraction on Devpost",
-            "href": "https://devpost.com/software/openinteraction"
-          }
-        ]
-      }
-    ],
-    "imageFit": "contain"
   },
   {
     "slug": "neural-prosthetic",
