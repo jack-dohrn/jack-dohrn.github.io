@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750">
+  <rect width="1200" height="750" fill="#edf2f5"/>
+  <g font-family="Arial, sans-serif" fill="#263743">
+    <text x="80" y="110" font-size="20" letter-spacing="3">EEG · STROKE CLASSIFICATION</text>
+    <text x="80" y="180" font-size="44">From neural signals to motor states</text>
+    <g fill="white" stroke="#c7d5de" stroke-width="2">
+      <rect x="80" y="260" width="290" height="225" rx="12"/>
+      <rect x="455" y="260" width="290" height="225" rx="12"/>
+      <rect x="830" y="260" width="290" height="225" rx="12"/>
+    </g>
+    <g stroke="#004f90" stroke-width="3" fill="none">
+      <path d="M105 355h25l12-20 16 50 18-70 18 60 15-20h25l14-15 16 35 14-20h65"/>
+      <path d="M385 372h53m-12-10 12 10-12 10M760 372h53m-12-10 12 10-12 10"/>
+    </g>
+    <g text-anchor="middle">
+      <text x="225" y="307" font-size="23">Sensorimotor EEG</text>
+      <text x="225" y="442" font-size="20">21 participants</text>
+      <text x="600" y="307" font-size="23">Feature extraction</text>
+      <text x="600" y="365" font-size="20">Spectral power</text>
+      <text x="600" y="400" font-size="20">Connectivity &amp; phase lag</text>
+      <text x="600" y="442" font-size="20">Five feature sets</text>
+      <text x="975" y="307" font-size="23">Classification</text>
+      <text x="975" y="365" font-size="20">Logistic regression</text>
+      <text x="975" y="400" font-size="20">Random forest</text>
+      <text x="975" y="442" font-size="20">Subject-grouped evaluation</text>
+    </g>
+    <text x="80" y="580" font-size="26">Stroke vs. control · 20% vs. 40% effort</text>
+    <text x="80" y="635" font-size="19" fill="#5b6c78">NE 412 · Team project · Workflow illustration</text>
+  </g>
+</svg>
