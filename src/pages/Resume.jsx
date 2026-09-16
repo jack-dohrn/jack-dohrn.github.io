@@ -14,7 +14,7 @@ export default function Resume() {
         <p>{resume.location}</p>
         <div className="project-links">
           <a className="text-link" href="tel:+16184986176">{resume.phone}</a>
-          <a className="text-link" href="mailto:jcdohrn2@illinois.edu">Email ↗</a>
+          <a className="text-link" href="mailto:jackdohrn@gmail.com">Email ↗</a>
           <a className="text-link" href="https://github.com/jack-dohrn" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
           <a className="text-link" href="https://www.linkedin.com/in/jack-dohrn-36a359290/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
         </div>

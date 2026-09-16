@@ -182,17 +182,19 @@ const projects = [
     "slug": "cortical-neuron-mea",
     "teamSize": 2,
     "status": "active",
-    "title": "Cortical Neuron Signal Analysis via 3Brain MEA",
+    "title": "Cortical Network Activity & Burst Propagation Using a 3Brain MEA",
     "shortTitle": "MEA",
     "type": "Research / In progress",
     "year": "2026–Present",
-    "description": "Wet-lab research combining mammalian cell culture, cortical neuron culture, and extracellular recording with high-density 3Brain microelectrode arrays. The project connects hands-on neural cell culture with electrophysiology and signal analysis.",
+    "description": "Investigating where coordinated bursts begin and how they spread through cultured cortical neuron networks, combining mammalian cell culture, high-density 3Brain MEA recording, and spatial analysis of neural activity.",
     "tags": [
       "Electrophysiology",
       "Wet Lab",
       "Mammalian Cell Culture",
-      "MEA",
-      "Signal Processing"
+      "Neural Cell Culture",
+      "High-Density MEA",
+      "Neural Signal Analysis",
+      "Experimental Design"
     ],
     "image": "/images/mea/3brain-mea.jpg",
     "heroImage": "/images/mea/3brain-mea.jpg",
@@ -221,24 +223,41 @@ const projects = [
     "sections": [
       {
         "type": "text",
-        "title": "From neural cell culture to recordings — in progress",
+        "title": "Where coordinated network activity begins",
         "content": [
-          "This ongoing project brings together wet-lab experimentation and computational analysis. I work with mammalian cortical neuron cultures, developing hands-on neural cell culture skills alongside extracellular recording with a high-density 3Brain microelectrode array.",
-          "The work spans the biological preparation, electrophysiological recording, and interpretation of neural signals. The current focus is developing this experimental workflow; project-specific findings will be added as the work progresses.",
-          "Mammalian cell culture and sterile technique are central to the work. Working with cortical neurons connects cell handling and culture maintenance to the needs of an electrophysiology experiment, building practical experience with living neural preparations.",
-          "The culture work also provides context for the recordings: interpreting electrical activity requires attention to the biological preparation and experimental conditions as well as the downstream analysis."
+          "I am investigating how coordinated electrical activity emerges and spreads through cultured cortical neuron networks. The focus is spatial burst initiation and propagation: where bursts begin, how activity spreads across the culture, and whether consistent patterns emerge across recordings.",
+          "The goal is to move beyond measuring overall activity toward understanding how different regions of a neuronal network participate in coordinated events. The project is in progress, with experimental protocols and analysis workflows under development."
         ]
       },
       {
         "type": "text",
-        "title": "From the electrode array to neural activity",
-        "content": "A high-density MEA records electrical activity at many locations across a preparation. These recordings provide a basis for examining neural signals and their spatial and temporal patterns. The images on this page are official 3Brain examples for context, not recordings or results from this project."
+        "title": "Culturing cortical neurons and recording their activity",
+        "content": [
+          "My work combines hands-on mammalian cell culture with extracellular electrophysiology. I culture cortical neurons and record their activity using a high-density 3Brain microelectrode array, connecting neural cell handling, culture maintenance, and sterile technique with the needs of a recording experiment.",
+          "I am developing experimental protocols alongside the computational workflow, with an emphasis on reproducible recording and analysis methods. Attention to the biological preparation and recording conditions provides context for interpreting differences in network activity."
+        ]
+      },
+      {
+        "type": "text",
+        "title": "Relating burst timing to spatial organization",
+        "content": [
+          "The electrode array records activity at many locations across the culture. I am developing analysis workflows that relate the timing of recorded activity to those electrode positions, investigating the spatial origins and spread of coordinated network bursts.",
+          "This approach asks which regions become active first, how other regions participate as an event unfolds, and whether similar patterns recur. The manufacturer images below illustrate the recording technology; they are not findings from this project."
+        ]
       },
       {
         "type": "image",
         "src": "/images/mea/3brain-example-data.png",
         "alt": "3Brain example showing extracellular traces, spike waveform clusters, and sorting results",
         "caption": "Manufacturer example: recorded traces and spike-sorting visualizations from 3Brain’s neuronal-culture application page. These are illustrative data, not project results."
+      },
+      {
+        "type": "text",
+        "title": "Following network development",
+        "content": [
+          "I am planning repeated recordings to study how coordinated activity changes as the cultures develop. These recordings would provide a basis for comparing burst initiation and propagation patterns over time.",
+          "Potential future directions include functional connectivity analysis and electrical stimulation experiments to explore network interactions and responses to controlled input. These are prospective extensions of the current culture, recording, and analysis work."
+        ]
       },
       {
         "type": "external-links",
