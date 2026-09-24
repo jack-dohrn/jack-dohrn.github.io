@@ -181,6 +181,7 @@ const projects = [
   {
     "slug": "cortical-neuron-mea",
     "teamSize": 2,
+    "teamLabel": "2-person team / Project Lead",
     "status": "active",
     "title": "Cortical Network Activity & Burst Propagation Using a 3Brain MEA",
     "shortTitle": "MEA",
@@ -233,7 +234,7 @@ const projects = [
         "type": "text",
         "title": "Culturing cortical neurons and recording their activity",
         "content": [
-          "My work combines hands-on mammalian cell culture with extracellular electrophysiology. I culture cortical neurons and record their activity using a high-density 3Brain microelectrode array, connecting neural cell handling, culture maintenance, and sterile technique with the needs of a recording experiment.",
+          "As Project Lead, I lead all aspects of the project, from cell culture and electrophysiological recording to data analysis. I culture cortical neurons and record their activity using a high-density 3Brain microelectrode array, connecting neural cell handling, culture maintenance, and sterile technique with the needs of a recording experiment.",
           "I am developing experimental protocols alongside the computational workflow, with an emphasis on reproducible recording and analysis methods. Attention to the biological preparation and recording conditions provides context for interpreting differences in network activity."
         ]
       },
